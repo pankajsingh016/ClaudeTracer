@@ -13,7 +13,16 @@ import {
   Maximize2,
   Minimize2,
 } from "lucide-react";
-import { fmtCost, fmtTokens, fmtDate, costState } from "@/api";
+import {
+  api,
+  fmtCost,
+  fmtTokens,
+  fmtDate,
+  costState,
+  type Transcript,
+  type TranscriptEvent,
+  type TranscriptBlock,
+} from "@/api";
 import { ModelBadge, Spinner, Empty } from "@/components/dashboard-ui";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -343,7 +352,7 @@ export default function Transcript({
   sessionId: string;
   onBack: () => void;
 }) {
-  const [data, setData] = useState<T | null>(null);
+  const [data, setData] = useState<Transcript | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Set<number>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);

@@ -228,7 +228,7 @@ export function SunburstChart({ data }: { data: SunburstNode }) {
     <div className="grid grid-cols-1 md:grid-cols-[minmax(200px,280px)_1fr] gap-6 items-start">
       {/* Clean donut — no external labels, no truncation */}
       <div className="flex flex-col items-center justify-center mx-auto w-full max-w-[280px]">
-        <div className="relative w-full aspect-square max-h-[240px]">
+        <div className="relative w-full h-[240px] max-w-[280px] mx-auto">
           <ResponsivePie
             data={projects}
             id="id"

@@ -73,10 +73,10 @@ export default function Overview({
       {/* Cost over time + calendar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <DashCard title="Daily cost trend" icon={TrendingUp} description={costState.basisLabel}>
-          {analytics.cost_over_time.length > 1 ? (
+          {analytics.cost_over_time.length ? (
             <CostLineChart data={analytics.cost_over_time} />
           ) : (
-            <Empty>Need activity across multiple days.</Empty>
+            <Empty>No dated activity yet.</Empty>
           )}
         </DashCard>
         <DashCard title="Activity heatmap" icon={CalendarDays} description="Daily spend intensity · GitHub-style">
@@ -104,10 +104,10 @@ export default function Overview({
           icon={Waves}
           description="Usage over time, stacked by model"
         >
-          {analytics.stream.length > 1 ? (
+          {analytics.stream.length ? (
             <StreamChart data={analytics.stream} keys={analytics.stream_keys} />
           ) : (
-            <Empty>Need activity across multiple days to draw the stream graph.</Empty>
+            <Empty>No dated token activity yet.</Empty>
           )}
         </DashCard>
       </div>
